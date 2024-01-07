@@ -1,0 +1,377 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v5.js"
+			integrity="sha384-qbNa7U27VV0Cghe/43y8zEMkmA5M4VxV6MI0k0vdVJKTrBoT2SnBqwccpD0vX+Is"
+			crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <script src="js/scatterplotiris.js"></script>
+    <script src="js/barchartiris.js"></script>
+    <script src="js/piechartiris.js"></script>
+
+    <title>CAP 4744/5745 - Interactive Data Visualization - Project 2</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Project 2: Kamryn Suh</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="calvin.html">Calvin College 2004</a></li>
+            <li class="nav-item active"><a class="nav-link" href="iris.html">Iris Dataset</a></li>
+            <li class="nav-item"><a class="nav-link" href="titanic.html">Titanic Passenger List</a></li>
+            <li class="nav-item"><a class="nav-link" href="wb_st.html">World Bank Data, Science-and-Technology</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div class="page">
+    <button type="button1" id="button1" onclick="">Setosa</button>
+    <button type="button2" id="button2" onclick="">Versicolor</button>
+    <button type="button3" id="button3" onclick="">Virginica</button>
+    <button type="button3" id="button4" onclick="">All classes</button>
+    <h1>CAP 4744/5745 - Interactive Data Visualization</h1>
+    <h2>Project 2: Iris Dataset</h2>
+    <h2>Kamryn Suh</h2>
+
+    <h3>Visualization 1: Scatterplot</h3>
+    <div><svg id="vis_1" name="vis_1" class="default_svg"></svg></div>
+    <div>
+        <p>For this scatterplot, I am trying to show the relatiionship between Petal Length (in cm) vs Sepal Length (in cm) for the three iris classes: Setosa, Versicolor, and Virginica. In addition, I am trying to compare the relationships between the 3 classes in the data set to showcase differences/similarities with the iris classes.</p>
+        <p>I chose a scatterplot with these specific measurements to showcase the relationship described above. The size of the points are on the smaller side to demonstrate each comparison of the iris classes in a readable manner. The x-axis starts from 4.0 to 8.0 and the y-axis scale starts from 0 to ~7, both related to centimeter measurement for length. The different colors represent the three different iris classes, so it easy to distinguish between them.</p>
+        <p>For interactions, I added hovering, tool tip, and linking. For each node you hover over, it will show a tool tip about the data with the specific petal length and sepal length. The linking is related to the button above that will filter which iris class you want to view only for the bar and scatter chart. For example, if you click the "Setosa" button, you will look at only the Setosa bar and node for both charts. If you click on "All classes", it will revert back to how the original charts looked when it first loaded. This facilitates effective communication to the user by allowing them to select which data they prefer to look at for closer inspection.</p>
+    </div>
+
+    <h3>Visualization 2: Bar Chart</h3>
+    <div><svg id="vis_2" name="vis_2" class="default_svg"></svg></div>
+    <div>
+        <p>For this bar chart, I am trying to compare the average of Petal Length (in cm) by each iris class: Setosa, Versicolor, and Virginica. This chart is suppose to demonstrate a distribution of data points and a comparison of the y-axis measurement of the subgroups in the dataset.
+        I chose a bar chart with these specific measurements to showcase the comparison described above. The bars are vertical and a relative size to showcase the data in a readable manner. The x-axis scale lists Iris-setosa, Iris-versicolor, and Iris-virginica. The y-axis starts from 0 and goes to 6.0 for the Petal Length (in cm). The different colors represent the three different iris classes that are being compared.</p>
+        <p>For interactions, I added hovering, highlighting, tool tip, and linking. For hovering and highlighting, when your mouse hovers over a specific bar, it will highlight that specific bar with a darker color. This will cause the other bars to be filled with a lighter color to highlight the specific bar the user is hovering over. For each bar you hover and highlight, it will show a tool tip with the data about the specific class and petal length. The linking is related to the button above that will filter which iris class you want to view only for the bar and scatter chart. For example, if you click the "Setosa" button, you will look at only the Setosa bar and node for both charts. If you click on "All classes", it will revert back to how the original charts looked when it first loaded. This facilitates effective communication to the user by allowing them to select which data they prefer to look at for closer inspection.</p>
+    </div>
+
+    <h3>Visualization 3: Pie Chart</h3>
+    <div><svg id="vis_3" name="vis_3" class="default_svg"></svg></div>
+    <div>
+        <p>For this pie chart, I am trying to represent percentages of the average of Petal Length (in cm) between three different iris classes: Virginica, Setosa, and Versicolor. This chart is suppose to demonstrate this data distribution over a set point in time and the relationships of parts to the whole of the data.</p>
+        <p>I chose a pie chart with these specific measurements to showcase the representation of percentages in the average described above. The size of the pie chart is relatively large so the audience is able to clearly see the slices of the pie chart. There is no x or y axis in this chart. The colors represent the three different iris classes. The text above the slices represent the average (%) of petal length (in cm), which add up to equal 100%.</p>
+        <p>For interactions, I added hovering and a tool tip. For hovering, when your mouse hovers over a specific slice, it will highlight that specific slice with a lighter color. For each bar you hover over, it will show a tool tip with the data about the specific class and average % of petal length. There is no linking with this visualization since it would not be logical to filter the pie chart to just one whole circle. I believe the hovering and tool tip is enough to suffice for effective communication for the user.</p>
+    </div>
+
+    <h3>Visualization 4: Visualization Type</h3>
+    <div><svg id="vis_4" name="vis_4" class="default_svg"></svg></div>
+    <div>
+        <p>Brief description of what the visualization is trying to show about the data.</p>
+        <p>Brief description of the visualization, encoding, and embellishment rationale.</p>
+    </div>
+
+</div>
+
+
+<script>
+
+    let data = null;
+    let vis_1 = null;
+    let vis_2 = null;
+    let vis_3 = null;
+    d3.csv("data/iris.csv", (row, i) => {
+        return {
+            sepalLength: +row["sepal length in cm"],
+            sepalWidth: +row["sepal width in cm"],
+            petalLength: +row["petal length in cm"],
+            petalWidth: +row["petal width in cm"],
+            class: row.class
+        };
+    }).then(rows => {
+        data = rows;
+
+        /* VIS #1 */
+
+        // chart for setosa
+        let classSetosa = data.map(d => {
+            if (d.class === "Iris-setosa")
+                return {
+                    sepalLength: d.sepalLength,
+                    petalLength: d.petalLength,
+                    class: d.class
+
+                }
+        })
+        classSetosa = classSetosa.filter(function (x) {
+            return x != undefined;
+        })
+        /*
+        let classSetosaFiltered = classSetosa.filter(function (x) {
+            return x != undefined;
+        })
+        let classSetosaFiltered2 = classSetosaFiltered.filter(function (x) {
+            return x.sepal != 0;
+        })*/
+
+        // chart for Versicolor
+        classVersicolor = data.map(d => {
+            if (d.class === "Iris-versicolor")
+                return {
+                    sepalLength: d.sepalLength,
+                    petalLength: d.petalLength,
+                    class: d.class
+                }
+        })
+        let classVersicolorFiltered = classVersicolor.filter(function (x) {
+            return x != undefined;
+        })
+        let classVersicolorFiltered2 = classVersicolorFiltered.filter(function (x) {
+            return x.sepal != 0;
+        })
+
+        // chart for Virginica
+        classVirginica = data.map(d => {
+            if (d.class === "Iris-virginica")
+                return {
+                    sepalLength: d.sepalLength,
+                    petalLength: d.petalLength,
+                    class: d.class
+                }
+        })
+        let classVirginicaFiltered = classVirginica.filter(function (x) {
+            return x != undefined;
+        })
+        let classVirginicaFiltered2 = classVirginicaFiltered.filter(function (x) {
+            return x.sepal != 0;
+        })
+
+        
+        
+        /* VIS #2 */
+        classSetosaBar = data.map(d => {
+            if (d.class === "Iris-setosa")
+                return {
+                    petal: d.petalLength,
+                    iris: d.class
+                }
+        })
+        let classSetosaFilteredBar = classSetosaBar.filter(function (x) {
+            return x != undefined;
+        })
+        avgSetosa = d3.mean(classSetosaFilteredBar, d => d.petal)
+
+        // chart for Versicolor
+        classVersicolorBar = data.map(d => {
+            if (d.class === "Iris-versicolor")
+                return {
+                    petal: d.petalLength,
+                    iris: d.class
+                }
+        })
+        let classVersicolorFilteredBar = classVersicolorBar.filter(function (x) {
+            return x != undefined;
+        })
+        avgVersicolor = d3.mean(classVersicolorFilteredBar, d => d.petal)
+
+        // chart for Virginica
+        classVirginicaBar = data.map(d => {
+            if (d.class === "Iris-virginica")
+                return {
+                    petal: d.petalLength,
+                    iris: d.class
+                }
+        })
+        let classVirginicaFilteredBar = classVirginicaBar.filter(function (x) {
+            return x != undefined;
+        })
+        avgVirginica = d3.mean(classVirginicaFilteredBar, d => d.petal)
+
+        let barChartIris = [
+            {
+                iris: "Iris-setosa", petal: avgSetosa
+            },
+            {
+                iris: "Iris-versicolor", petal: avgVersicolor
+            },
+            {
+                iris: "Iris-virginica", petal: avgVirginica
+            }
+        ]
+
+        let barSetosa = [
+            {
+                iris: "Iris-setosa", petal: avgSetosa
+            }
+        ]
+        
+        let barVersicolor = [
+            {
+                iris: "Iris-versicolor", petal: avgVersicolor
+            }
+        ]
+        
+        let barVirginica = [
+            {
+                iris: "Iris-virginica", petal: avgVirginica
+            }
+        ]
+
+
+        /* VIS #3 */
+        // filter for Setosa
+        classSetosaPie = data.map(d => {
+            if (d.class === "Iris-setosa")
+                return {
+                    class: d.class,
+                    sepal: d.petalLength
+                }
+        })
+        let classSetosaFilteredPie = classSetosaPie.filter(function (x) {
+            return x != undefined;
+        })
+        avgSetosa1 = d3.mean(classSetosaFilteredPie, d => d.sepal)
+
+        // filter for Versicolor
+        classVersicolorPie = data.map(d => {
+            if (d.class === "Iris-versicolor")
+                return {
+                    class: d.class,
+                    sepal: d.petalLength
+                }
+        })
+        let classVersicolorFilteredPie = classVersicolorPie.filter(function (x) {
+            return x != undefined;
+        })
+        avgVersicolor1 = d3.mean(classVersicolorFilteredPie, d => d.sepal)
+        
+        // filter for Virginica
+        classVirginicaPie = data.map(d => {
+            if (d.class === "Iris-virginica")
+                return {
+                    class: d.class,
+                    sepal: d.petalLength
+                }
+        })
+        let classVirginicaFilteredPie = classVirginicaPie.filter(function (x) {
+            return x != undefined;
+        })
+        avgVirginica1 = d3.mean(classVirginicaFilteredPie, d => d.sepal)
+
+        totalPie = (avgSetosa1 + avgVersicolor1 + avgVirginica1);
+        percentageSet = (avgSetosa1 / totalPie) * 100;
+        percentageVersi = (avgVersicolor1 / totalPie) * 100;
+        percentageVirg = (avgVirginica1 / totalPie) * 100;
+
+        formatSet = d3.format(",.3")(percentageSet);
+        formatVersi = d3.format(",.3")(percentageVersi);
+        formatVirg = d3.format(",.3")(percentageVirg);
+
+        let pieChartIris = [
+            {
+                iris1: "Iris-setosa", petal: formatSet
+            },
+            {
+                iris1: "Iris-versicolor", petal: formatVersi
+            },
+            {
+                iris1: "Iris-virginica", petal: formatVirg
+            }
+        ]
+
+        let pieSetosa = [
+            {
+                iris1: "Iris-setosa", petal: formatSet
+            }
+        ]
+        let pieVersicolor = [
+            {
+                iris1: "Iris-versicolor", petal: formatVersi
+            }
+        ]
+        let pieVirginica = [
+            {
+                iris1: "Iris-virginica", petal: formatVirg
+            }
+        ]
+
+        vis_1 = load_scatterplot("#vis_1", data)
+        vis_2 = load_barchart("#vis_2", barChartIris) 
+        vis_3 = load_piechart("#vis_3", pieChartIris)
+
+        d3.select("#button1").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", classSetosa)
+            vis_2 = load_barchart("#vis_2", barSetosa)
+            vis_3 = load_piechart("#vis_3", pieChartIris)
+        })
+        d3.select("#button2").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", classVersicolorFiltered2)
+            vis_2 = load_barchart("#vis_2", barVersicolor)
+            vis_3 = load_piechart("#vis_3", pieChartIris)
+        })
+        d3.select("#button3").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", classVirginicaFiltered2)
+            vis_2 = load_barchart("#vis_2", barVirginica)
+            vis_3 = load_piechart("#vis_3", pieChartIris) 
+        })
+        d3.select("#button4").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", data)
+            vis_2 = load_barchart("#vis_2", barChartIris)
+            vis_3 = load_piechart("#vis_3", pieChartIris) 
+        })
+
+        console.log()
+    }).catch(error => {
+        console.log(error);
+    });
+
+</script>
+
+</body>
+</html>

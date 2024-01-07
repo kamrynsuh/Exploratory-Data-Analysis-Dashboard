@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v5.js"
+			integrity="sha384-qbNa7U27VV0Cghe/43y8zEMkmA5M4VxV6MI0k0vdVJKTrBoT2SnBqwccpD0vX+Is"
+			crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+    <script src="js/scatterplot_science.js"></script>
+    <script src="js/linechartscience.js"></script>
+    <script src="js/barchartscience.js"></script>
+    <title>CAP 4744/5745 - Interactive Data Visualization - Project 2</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Project 2: Kamryn Suh</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="calvin.html">Calvin College 2004</a></li>
+            <li class="nav-item"><a class="nav-link" href="iris.html">Iris Dataset</a></li>
+            <li class="nav-item"><a class="nav-link" href="titanic.html">Titanic Passenger List</a></li>
+            <li class="nav-item active"><a class="nav-link" href="wb_st.html">World Bank Data, Science-and-Technology</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="page">
+    <button type="button5" id="button5" onclick="">Brazil</button>
+    <button type="button6" id="button6" onclick="">Peru</button>
+    <button type="button7" id="button7" onclick="">Chile</button>
+    <button type="button8" id="button8" onclick="">Argentina</button>
+    <button type="button9" id="button9" onclick="">Uruguay</button>
+    <button type="button10" id="button10" onclick="">All countries</button>
+                 
+    <h1>CAP 4744/5745 - Interactive Data Visualization</h1>
+    <h2>Project 2: World Bank Data, Science-and-Technology Dataset</h2>
+    <h2>Kamryn Suh</h2>
+
+    <h3>Visualization 1: Scatterplot</h3>
+    <div><svg id="vis_1" name="vis_1" class="default_svg"></svg></div>
+    <div>
+        <p>For this scatterplot, I am trying to show the relationship between Researchers in R&D (per million people) vs High-technology exports (% of manufactured exports) in Bulgaria between years 1996 - 2015. This chart is suppose to demonstrate how researchers in research and development impact the amount of high-technology exports are manufactured. This population of researchers create new products, systems, projects, tools, and more. High-technology exports are produced with high R&D intensity, which is what this scaterplot is showcasing. From the chart, we can see an increasing, positive trend with the relationship between Researchers in R&D and the amount of high-technology exports manufactured.</p>
+        <p>I chose a scatterplot with these specific measurements to showcase the relationship described above. The size of the points are bigger to showcase a smaller amount of data in a readable manner. The x-axis scale starts from 0 and goes to 2,100 and the y-axis scale starts from 0 to 10. The color is a simple purple to match the other data sets color scheme. The data consists of all researchers and high-technology manufactured exports in the dataset (for Bulgaria). These decisions facilitate a simple, effective communication of the relationship between Researchers in R&D and High-technology exports.</p>
+        <p>For interactions, I added a hover that highlights the specific node and a tooltip along with it. When your mouse hovers over the node, it darkens the color and expadns in size a bit to showcase which node you're looking at currently. The tooltip next to the hover/highlight has information about the numeric data with researchers and exports for that specific node. These interactions facilitate effective communication for the user to have a more clear view on the current node they're hovering over. There is no linking involved with the scatter due to it not being related to the other visualizations and how it specifically looks at Bulgaria only.</p>
+    </div>
+
+    <h3>Visualization 2: Bar Chart</h3>
+    <div><svg id="vis_2" name="vis_2" class="default_svg"></svg></div>
+    <div>
+        <p>For this bar chart, I am trying to compare the average of Scientific and technical journal articles by each country listed above in the year 2015. This chart is suppose to demonstrate a distribution of data points and a comparison of the y-axis measurement of the subgroups in the dataset.</p>
+        <p>I chose a bar chart with these specific measurements to showcase the comparison describe above. The bars are vertical and a relative size to showcase the data in a readable manner. The x-axis scale lists Morocco, Bangladesh, Lithuania, Slovenia, and Philippines. The y-axis starts from 0 and goes to 4,000 for the Scientific and technical journal articles. The different colors represent the different countries that are being compared.</p>
+        <p>For interactions, I added hovering, highlighting, tool tip, and linking. For hovering and highlighting, when your mouse hovers over a specific bar, it will highlight that specific bar with a darker color. This will cause the other bars to be filled with a lighter color to highlight the specific bar the user is hovering over. For each bar you hover and highlight, it will show a tool tip with the data about the specific country and exports. The linking is related to the button above that will filter which country you want to view only for the bar and line chart. For example, if you click the "Brazil" button, you will look at only the Brazil bar and line for both charts. If you click on "All countries", it will revert back to how the original charts looked when it first loaded. This facilitates effective communication to the user by allowing them to select which data they prefer to look at for closer inspection.</p>
+    </div>
+    <h3>Visualization 3: Line Chart</h3>
+    <div><svg id="vis_3" name="vis_3" class="default_svg"></svg></div>
+    <div>
+        <p>For this line chart, I am trying to show data about High-technology exports (% of manufactured exports) that changes over time, specifically in the span of 1990 - 2016. In addition, I am trying to show comparison between the five lines representing selected countries in South America, which is Brazil, Peru, Chile, Argentina, and Uruguay. This visualization is trying to show the types of trends, highs, lows, and other changes over time for each country. This facilitates effective communication to the user by allowing them to select which data they prefer to look at for closer inspection.</p>
+        <p>I chose a line chart with these specific measurements to showcase the change in data over time. The lines are a relative size to showcase the data in a readable manner. The x-axis scale starts with the year 1990 and extends to 2016. The y-axis scale starts from 2 to ~18 for the High-technology exports. The different colors represent the different countries in South America that are being compared.</p>
+        <p>For interactions, I added linking. The linking is related to the button above that will filter which country you want to view only for the bar and line chart. For example, if you click the "Brazil" button, you will look at only the Brazil bar and line for both charts. If you click on "All countries", it will revert back to how the original charts looked when it first loaded.</p>
+    </div>
+
+    <h3>Visualization 4: Visualization Type</h3>
+    <div><svg id="vis_4" name="vis_4" class="default_svg"></svg></div>
+    <div>
+        <p>Brief description of what the visualization is trying to show about the data.</p>
+        <p>Brief description of the visualization, encoding, and embellishment rationale.</p>
+    </div>
+
+</div>
+
+
+<script>
+    let data = null;
+    let vis_1 = null;
+    let vis_2 = null;
+    let vis_3 = null;
+    d3.csv("data/science-and-technology.csv", (row, i) => {
+        return {
+            exports: +row["High-technology exports (% of manufactured exports)"],
+            research: +row["Researchers in R&D (per million people)"],
+            tech: +row["Technicians in R&D (per million people)"],
+            country: (row["Country Name"]),
+            journal: +row["Scientific and technical journal articles"],
+            year: +row.Year
+            
+        };
+    }).then(rows => {
+        data = rows;
+
+        /* VIS #1 */
+        let exportsBulgaria = data.map(d => {
+            if (d.country === "Bulgaria")
+                return {
+                    year: d.year,
+                    research: d.research,
+                    exports: d.exports
+                }
+        })
+        let bulgariaFiltered = exportsBulgaria.filter(function (x) {
+            return x != undefined;
+        })
+        let bulgariaFiltered2 = bulgariaFiltered.filter(function (x) {
+            return x.research != 0;
+        })
+
+        /* VIS #2 */
+        // Brazil filter
+        let journalBrazil = data.map(d => {
+            if (d.country === "Brazil" && d.year === 2015)
+                return {
+                    exports: d.exports,
+                    journals: d.journal,
+                    name: d.country
+                }
+        })
+        brazilFiltered1 = journalBrazil.filter(function (x) {
+            return x != undefined;
+        })
+        avgBrazil = d3.mean(brazilFiltered1, d => d.exports)
+
+        // Peru filter
+        let journalPeru = data.map(d => {
+            if (d.country === "Peru" && d.year === 2015)
+                return {
+                    exports: d.exports,
+                    journals: d.journal,
+                    name: d.country
+                }
+        })
+        peruFiltered1 = journalPeru.filter(function (x) {
+            return x != undefined;
+        })
+        avgPeru = d3.mean(peruFiltered1, d => d.exports)
+
+        // Chile filter
+        let journalChile = data.map(d => {
+            if (d.country === "Chile" && d.year === 2015)
+                return {
+                    exports: d.exports,
+                    journals: d.journal,
+                    name: d.country
+                }
+        })
+        chileFiltered1 = journalChile.filter(function (x) {
+            return x != undefined;
+        })
+        avgChile = d3.mean(chileFiltered1, d => d.exports)
+
+        // Argentina filter
+        let journalArgentina = data.map(d => {
+            if (d.country === "Argentina" && d.year === 2015)
+                return {
+                    exports: d.exports,
+                    journals: d.journal,
+                    name: d.country
+                }
+        })
+        argentinaFiltered1 = journalArgentina.filter(function (x) {
+            return x != undefined;
+        })
+        avgArgentina = d3.mean(argentinaFiltered1, d => d.exports)
+
+        // Uruguay filter
+        let journalUruguay = data.map(d => {
+            if (d.country === "Uruguay" && d.year === 2015)
+                return {
+                    exports: d.exports,
+                    journals: d.journal,
+                    name: d.country
+                }
+        })
+        uruguayFiltered1 = journalUruguay.filter(function (x) {
+            return x != undefined;
+        })
+        avgUruguay = d3.mean(uruguayFiltered1, d => d.exports)
+        
+        // naming the country filters
+        let countryBarChart = [
+            {
+                name: "Brazil", journal: avgBrazil
+            },
+            {
+                name: "Peru", journal: avgPeru
+            },
+            {
+                name: "Chile", journal: avgChile
+            },
+            {
+                name: "Argentina", journal: avgArgentina
+            },
+            {
+                name: "Uruguay", journal: avgUruguay
+            }
+        ]
+
+        let barBrazil = [
+            {
+                name: "Brazil", journal: avgBrazil
+            }
+        ]
+        let barPeru = [
+            {
+                name: "Peru", journal: avgPeru
+            }
+        ]
+        let barChile = [
+            {
+                name: "Chile", journal: avgChile
+            }
+        ]
+        let barArgentina = [
+            {
+                name: "Argentina", journal: avgArgentina
+            }
+        ]
+        let barUruguay = [
+            {
+                name: "Uruguay", journal: avgUruguay
+            }
+        ]
+        
+        /* VIS #3 */
+        // Brazil filter
+        countryBrazil = data.map(d => {
+            if (d.country === "Brazil")
+                return {
+                    year1: d.year,
+                    exports1: d.exports
+                }
+        })
+        let brazilFiltered = countryBrazil.filter(function (x) {
+            return x != undefined;
+        })
+        let brazilFiltered2 = brazilFiltered.filter(function (x) {
+            return x.exports1 != 0;
+        })
+        brazilFiltered2.sort(function (a, b) { return d3.ascending(a.year1, b.year1)})
+
+        // Peru filter
+        countryPeru = data.map(d => {
+            if (d.country === "Peru")
+                return {
+                    year1: d.year,
+                    exports1: d.exports,
+                    name: d.country
+                }
+        })
+        let peruFiltered = countryPeru.filter(function (x) {
+            return x != undefined;
+        })
+        let peruFiltered2 = peruFiltered.filter(function (x) {
+            return x.exports1 != 0;
+        })
+        peruFiltered2.sort(function (a, b) { return d3.ascending(a.year1, b.year1)})
+        
+        // Chile filter
+        countryChile = data.map(d => {
+            if (d.country === "Chile")
+                return {
+                    year1: d.year,
+                    exports1: d.exports,
+                    name: d.country
+                }
+        })
+        let chileFiltered = countryChile.filter(function (x) {
+            return x != undefined;
+        })
+        let chileFiltered2 = chileFiltered.filter(function (x) {
+            return x.exports1 != 0;
+        })
+        chileFiltered2.sort(function (a, b) { return d3.ascending(a.year1, b.year1)})
+
+        // Argentina filter
+        countryArgentina = data.map(d => {
+            if (d.country === "Argentina")
+                return {
+                    year1: d.year,
+                    exports1: d.exports,
+                    name: d.country
+                }
+        })
+        let argentinaFiltered = countryArgentina.filter(function (x) {
+            return x != undefined;
+        })
+        let argentinaFiltered2 = argentinaFiltered.filter(function (x) {
+            return x.exports1 != 0;
+        })
+        argentinaFiltered2.sort(function (a, b) { return d3.ascending(a.year1, b.year1)})
+
+        // Uruguay filter 
+        countryUruguay = data.map(d => {
+            if (d.country === "Uruguay")
+                return {
+                    year1: d.year,
+                    exports1: d.exports,
+                    name: d.country
+                }
+        })
+        let uruguayFiltered = countryUruguay.filter(function (x) {
+            return x != undefined;
+        })
+        let uruguayFiltered2 = uruguayFiltered.filter(function (x) {
+            return x.exports1 != 0;
+        })
+        uruguayFiltered2.sort(function (a, b) { return d3.ascending(a.year1, b.year1)})
+        
+        
+        vis_1 = load_scatterplot("#vis_1", bulgariaFiltered2)
+        vis_2 = load_barchart("#vis_2", countryBarChart)
+        vis_3 = load_linechart("#vis_3", brazilFiltered2, peruFiltered2, chileFiltered2, argentinaFiltered2, uruguayFiltered2) 
+        
+        d3.select("#button5").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", bulgariaFiltered2)
+            vis_2 = load_barchart("#vis_2", barBrazil)
+            vis_3 = load_linechart("#vis_3", brazilFiltered2, 0, 0, 0, 0) 
+        })
+        d3.select("#button6").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", bulgariaFiltered2)
+            vis_2 = load_barchart("#vis_2", barPeru)
+            vis_3 = load_linechart("#vis_3", 0, peruFiltered2, 0, 0, 0) 
+        })
+        d3.select("#button7").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", bulgariaFiltered2)
+            vis_2 = load_barchart("#vis_2", barChile)
+            vis_3 = load_linechart("#vis_3", 0, 0, chileFiltered2, 0, 0) 
+        })
+        d3.select("#button8").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", bulgariaFiltered2)
+            vis_2 = load_barchart("#vis_2", barArgentina)
+            vis_3 = load_linechart("#vis_3", 0, 0, 0, argentinaFiltered2, 0) 
+        })
+        d3.select("#button9").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", bulgariaFiltered2)
+            vis_2 = load_barchart("#vis_2", barUruguay)
+            vis_3 = load_linechart("#vis_3", 0, 0, 0, 0, uruguayFiltered2) 
+        })
+        d3.select("#button10").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_3");
+            svg2.selectAll("*").remove();
+            vis_1 = load_scatterplot("#vis_1", bulgariaFiltered2)
+            vis_2 = load_barchart("#vis_2", countryBarChart)
+            vis_3 = load_linechart("#vis_3", brazilFiltered2, peruFiltered2, chileFiltered2, argentinaFiltered2, uruguayFiltered2) 
+        })
+ 
+    }).catch(error => {
+        console.log(error);
+    });
+
+</script>
+
+</body>
+</html>

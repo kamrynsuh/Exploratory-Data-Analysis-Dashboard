@@ -1,0 +1,391 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v5.js"
+			integrity="sha384-qbNa7U27VV0Cghe/43y8zEMkmA5M4VxV6MI0k0vdVJKTrBoT2SnBqwccpD0vX+Is"
+			crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <script src="js/scatterplotcereal.js"></script>
+    <script src="js/barchartcereal.js"></script>
+    <script src="js/piechartcereal.js"></script>
+    <script src="js/aggregation.js"></script>
+
+    <title>CAP 4744/5745 - Interactive Data Visualization - Project 4</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="cerealCode.html">Project 4: Kamryn Suh</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active"><a class="nav-link" href="cerealCode.html">Cereal Data Visualizations</a></li>
+            <li class="nav-item active"><a class="nav-link" href="cerealDesc.html">Cereal Descriptions</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div class="page">
+    <button type="button1" id="button1" onclick="">Cinnamon Toast Crunch</button>
+    <button type="button2" id="button2" onclick="">Cheerios</button>
+    <button type="button3" id="button3" onclick="">Raisin Nut Bran</button>
+    <button type="button4" id="button4" onclick="">All cereals</button>
+    <button type="button5" id="button5" onclick="">General Mills</button>
+    <button type="button6" id="button6" onclick="">Kelloggs</button>
+    <button type="button7" id="button7" onclick="">Post</button>
+    <button type="button8" id="button8" onclick="">All brands</button>
+    <h1 id ="title1">Nutrition Data on 80 Cereal Products</h1>
+    <h2 id ="title2">CAP 4744/5745 - Interactive Data Visualization</h2>
+    <h2 id ="title3">Kamryn Suh</h2>
+
+    <h3 id ="title4">Visualization 1: Bar Chart</h3>
+    <div><svg id="vis_1" name="vis_1" class="default_svg"></svg></div>
+    <div>
+    </div>
+
+    <h3 id ="title5">Visualization 2: Pie Chart</h3>
+    <div><svg id="vis_2" name="vis_2" class="default_svg"></svg></div>
+    <div>
+    </div>
+
+    <h3 id ="title6">Visualization 3: Histogram</h3>
+    <div><svg id="vis_3" name="vis_3" class="default_svg"></svg></div>
+    <div>
+    </div>
+
+    <h3 id ="title7">Visualization 4: Scatterplot</h3>
+    <div><svg id="vis_4" name="vis_4" class="default_svg"></svg></div>
+    <div>
+    </div>
+
+</div>
+
+
+<script>
+
+    let data = null;
+    let vis_1 = null;
+    let vis_2 = null;
+    let vis_3 = null;
+    let vis_4 = null;
+    d3.csv("data/cereals.csv", (row, i) => {
+        return {
+            name: row.name,
+            mfr: row.mfr,
+            calories: row.calories,
+            sodium: row.sodium,
+            carbo: row.carbo,
+            potassium: row.potass,
+            vitamins: row.vitamins,
+            rating: row.rating
+        };
+    }).then(rows => {
+        data = rows;
+
+        /* VIS #1 */
+
+        // chart for General Mills
+       
+       
+        /* VIS #2 */
+        // cereal: cinn, cheerios, Raisin Nut Bran
+        cerealCinn = data.map(d => {
+            if (d.name === "Cinnamon Toast Crunch")
+                return {
+                    calories: d.calories,
+                    sodium: d.sodium
+                }
+        })
+        let cerealCinnFilteredBar = cerealCinn.filter(function (x) {
+            return x != undefined;
+        })
+        avgcerealCinn = d3.mean(cerealCinnFilteredBar, d => d.sodium)
+
+        // chart for Cheerios
+        cerealCheer = data.map(d => {
+            if (d.name === "Cheerios")
+                return {
+                    calories: d.calories,
+                    sodium: d.sodium
+                }
+        })
+        let cerealCheerFilteredBar = cerealCheer.filter(function (x) {
+            return x != undefined;
+        })
+        avgcerealCheer = d3.mean(cerealCheerFilteredBar, d => d.sodium)
+        
+        // chart for Raisin Nut Bran
+        cerealRaisin = data.map(d => {
+            if (d.name === "Raisin Nut Bran")
+                return {
+                    calories: d.calories,
+                    sodium: d.sodium
+                }
+        })
+        let cerealRaisinFilteredBar = cerealRaisin.filter(function (x) {
+            return x != undefined;
+        })
+        avgcerealRaisin = d3.mean(cerealRaisinFilteredBar, d => d.sodium)
+
+        let barChartCereal = [
+            {
+                nameCereal: "Cinnamon Toast Crunch", sodium: avgcerealCinn
+            },
+            {
+                nameCereal: "Cheerios", sodium: avgcerealCheer
+            },
+            {
+                nameCereal: "Raisin Nut Bran", sodium: avgcerealRaisin
+            }
+        ]
+
+        let barCinna = [
+            {
+                nameCereal: "Cinnamon Toast Crunch", sodium: avgcerealCinn
+            }
+        ]
+        
+        let barCheer = [
+            {
+                nameCereal: "Cheerios", sodium: avgcerealCheer
+            }
+        ]
+        
+        let barRaisin = [
+            {
+                nameCereal: "Raisin Nut Bran", sodium: avgcerealRaisin
+            }
+        ]
+
+
+        /* VIS #3 */
+        // filter for cinnamon
+        cinnaAvgPie = data.map(d => {
+            if (d.name === "Cinnamon Toast Crunch")
+                return {
+                    name: d.name,
+                    rating: d.rating
+                }
+        })
+        let cinnaAvgFilteredPie = cinnaAvgPie.filter(function (x) {
+            return x != undefined;
+        })
+        avgcinnaAvg = d3.mean(cinnaAvgFilteredPie, d => d.rating)
+
+        // filter for cheerios
+        cheerAvgPie = data.map(d => {
+            if (d.name === "Cheerios")
+                return {
+                    name: d.name,
+                    rating: d.rating
+                }
+        })
+        let cheerAvgFilteredPie = cheerAvgPie.filter(function (x) {
+            return x != undefined;
+        })
+        avgcheerAvg = d3.mean(cheerAvgFilteredPie, d => d.rating)
+        
+        // filter for Raisin
+        raisinAvgPie = data.map(d => {
+            if (d.name === "Raisin Nut Bran")
+                return {
+                    name: d.name,
+                    rating: d.rating
+                }
+        })
+        let raisinAvgFilteredPie = raisinAvgPie.filter(function (x) {
+            return x != undefined;
+        })
+        avgraisinAvg = d3.mean(raisinAvgFilteredPie, d => d.rating)
+
+        totalPie = (avgcinnaAvg + avgcheerAvg + avgraisinAvg);
+
+        formatCinna = d3.format(",.3")(avgcinnaAvg);
+        formatCheer = d3.format(",.3")(avgcheerAvg);
+        formatRaisin = d3.format(",.3")(avgraisinAvg);
+
+        let pieChartCereal = [
+            {
+                namePie: "Cinnamon Toast Crunch", rating: formatCinna
+            },
+            {
+                namePie: "Cheerios", rating: formatCheer
+            },
+            {
+                namePie: "Raisin Nut Bran", rating: formatRaisin
+            }
+        ]
+        
+        // VIS #4
+        heatMap = data.map(d => {
+            if (d.calories)
+                return {
+                    name: d.name,
+                    calories: d.calories,
+                }
+        })  
+        let heatMapFiltered = heatMap.filter(function (x) {
+            return x != undefined;
+        }) 
+
+        data = data.map(d => {
+            if (d.mfr === "General Mills" || d.mfr === "Kelloggs" || d.mfr === "Post")
+                return {
+                    potassium: d.potassium,
+                    mfr: d.mfr,
+                    rating: d.rating,
+                    name: d.name
+                }
+        })
+        data = data.filter(function (x) {
+            return x != undefined;
+        })
+
+        let cerealMills = data.map(d => {
+            if (d.mfr === "General Mills")
+                return {
+                    potassium: d.potassium,
+                    mfr: d.mfr,
+                    rating: d.rating,
+                    name: d.name
+                }
+        })
+        cerealMillsFiltered = cerealMills.filter(function (x) {
+            return x != undefined;
+        })
+
+        let cerealKelloggs = data.map(d => {
+            if (d.mfr === "Kelloggs")
+                return {
+                    mfr: d.mfr,
+                    potassium: d.potassium,
+                    rating: d.rating,
+                    name: d.name
+                }
+            })
+        let cerealKelloggsFiltered = cerealKelloggs.filter(function (x) {
+            return x != undefined;
+        })
+
+        cerealPost = data.map(d => {
+        if (d.mfr === "Post")
+            return {
+                mfr: d.mfr,
+                potassium: d.potassium,
+                rating: d.rating,
+                name: d.name
+            }
+        })
+        let cerealPostFiltered = cerealPost.filter(function (x) {
+            return x != undefined;
+        })
+        
+        vis_1 = load_barchart("#vis_1", barChartCereal) 
+        vis_2 = load_piechart("#vis_2", pieChartCereal)
+        vis_3 = load_aggregation("#vis_3", heatMapFiltered)
+        vis_4 = load_scatterplot("#vis_4", data)
+
+
+        d3.select("#button1").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_4");
+            svg2.selectAll("*").remove();
+            vis_1 = load_barchart("#vis_1", barCinna)
+            vis_2 = load_piechart("#vis_2", pieChartCereal)
+            vis_4 = load_scatterplot("#vis_4", data)
+        })
+        d3.select("#button2").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_4");
+            svg2.selectAll("*").remove();
+            vis_1 = load_barchart("#vis_1", barCheer)
+            vis_2 = load_piechart("#vis_2", pieChartCereal)
+            vis_4 = load_scatterplot("#vis_4", data)
+        })
+        d3.select("#button3").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_4");
+            svg2.selectAll("*").remove();
+            vis_1 = load_barchart("#vis_1", barRaisin)
+            vis_2 = load_piechart("#vis_2", pieChartCereal) 
+            vis_4 = load_scatterplot("#vis_4", data)
+        })
+        d3.select("#button4").on("click", function () {
+            var svg = d3.select("#vis_1");
+            svg.selectAll("*").remove();
+            var svg1 = d3.select("#vis_2");
+            svg1.selectAll("*").remove();
+            var svg2 = d3.select("#vis_4");
+            svg2.selectAll("*").remove();
+            vis_1 = load_barchart("#vis_1", barChartCereal)
+            vis_2 = load_piechart("#vis_2", pieChartCereal) 
+            vis_4 = load_scatterplot("#vis_4", data)
+        })
+        d3.select("#button5").on("click", function () {
+            var svg2 = d3.select("#vis_4");
+            svg2.selectAll("*").remove();
+            vis_4 = load_scatterplot("#vis_4", cerealMillsFiltered)
+        })
+        d3.select("#button6").on("click", function () {
+            var svg2 = d3.select("#vis_4");
+            svg2.selectAll("*").remove();
+            vis_4 = load_scatterplot("#vis_4", cerealKelloggsFiltered)
+        })
+        d3.select("#button7").on("click", function () {
+            var svg2 = d3.select("#vis_4");
+            svg2.selectAll("*").remove();
+            vis_4 = load_scatterplot("#vis_4", cerealPostFiltered)
+        })
+        d3.select("#button8").on("click", function () {
+            var svg2 = d3.select("#vis_4");
+            svg2.selectAll("*").remove();
+            vis_4 = load_scatterplot("#vis_4", data)
+        })
+
+
+        
+
+    }).catch(error => {
+        console.log(error);
+    });
+
+</script>
+
+</body>
+</html>

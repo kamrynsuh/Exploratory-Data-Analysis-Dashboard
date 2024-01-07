@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v5.js"
+			integrity="sha384-qbNa7U27VV0Cghe/43y8zEMkmA5M4VxV6MI0k0vdVJKTrBoT2SnBqwccpD0vX+Is"
+			crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+
+    <title>CAP 4744/5745 - Interactive Data Visualization - Project 4</title>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="cerealCode.html">Project 4: Kamryn Suh</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="cerealCode.html">Cereal Data Visualizations</a></li>
+                <li class="nav-item active"><a class="nav-link" href="cerealDesc.html">Cereal Descriptions</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<div class="page">
+
+    <h1 id ="titledesc">Nutrition Data on 80 Cereal Products</h1>
+    <h2 id ="title2">CAP 4744/5745 - Interactive Data Visualization</h2>
+    <h2 id ="title3">Kamryn Suh</h2>
+
+    <h3 id ="title4">Visualization 1: Bar Chart</h3>
+    <div>
+        <p>The cereal data selected for this visualization was to showcase two cereals I love the most, which is Cinnamon Toast Crunch and Cheerios. The third cereal chosen, Raisin Nut Bran, was suppose to show a healthier option. I wanted to design the bar chart data selection this way so I am able to compare the sodium levels (in mg) for two cereals I love (that are not as healthy) and one cereal that I do not love as much (that is on the healthier side).</p>
+        <p>For this bar chart, I am comparing the sodium levels (mg) by the selected brands of cereal: Cinnamon Toast Crunch, Cheerios, Raisin Nut Bran. This chart is suppose to demonstrate a distribution of data points and a comparison of the y-axis measurement of the subgroups in the dataset.
+        I chose a bar chart with these specific measurements to showcase the comparison described above. The bars are vertical and a relative size to showcase the data in a readable manner. The x-axis scale lists Cinnamon Toast Crunch, Cheerios, and Raisin Nut Bran. The y-axis starts from 0 and goes to 300 for the Sodium levels (in mg). The different colors represent the three different cereal brands that are being compared.</p>
+        <p>For interactions, I added hovering, highlighting, tool tip, and dynamic query filters. For hovering and highlighting, when your mouse hovers over a specific bar, it will highlight that specific bar with a darker color. This will cause the other bars to be filled with a lighter color to highlight the specific bar the user is hovering over. For each bar you hover and highlight, it will show a tool tip with the data about the specific cereal brand and sodium level. The dynamic query filtering is related to the button above that will filter which cereal brand you want to view only for the bar chart. For example, if you click the "Cheerios" button, you will look at only the Cheerios bar. If you click on "All cereals", it will revert back to how the original chart looked when it first loaded. This facilitates effective communication to the user by allowing them to select which data they prefer to look at for closer inspection.</p>
+    </div>
+
+    <h3 id ="title5">Visualization 2: Pie Chart</h3>
+    <div>
+        <p>The cereal data selected for this visualization was to showcase two cereals I love the most, which is Cinnamon Toast Crunch and Cheerios. 
+        The third cereal chosen, Raisin Nut Bran, was suppose to show a healthier option. 
+        I wanted to design the pie chart data selection this way so I am able to compare the consumer report rating (%) for two cereals I love (that are not as healthy) and one cereal that I do not love as much (that is on the healthier side).</p>
+        <p>For this pie chart, I am trying to represent percentages of the Consumer Report Rating between three different cereal brands: Cinnamon Toast Crunch, Cheerios, and Raisin Nut Bran. 
+        This chart is suppose to demonstrate this data distribution over a set point in time and the relationships of parts to the whole of the data.
+        I chose a pie chart with these specific measurements to showcase the representation of percentages of the reported ratings. 
+        The size of the pie chart is relatively large so the audience is able to clearly see the slices of the pie chart. There is no x or y axis in this chart.
+        The colors represent the three different cereal brands. The text above the slices represent the consumer report rating (%) which add up to equal roughly around 110%.</p>
+        <p>For interactions, I added hovering and a tool tip. For hovering, when your mouse hovers over a specific slice, it will highlight that specific slice with a lighter color.
+        For each slice you hover over, it will show a tool tip with the data about the specific brand and consumer report rating.
+        There is no linking/dynamic query filtering with this visualization since it would not be logical to filter the pie chart to just one whole circle. 
+        I believe the hovering and tool tip is enough to suffice for effective communication for the user.</p>
+    </div>
+
+    <h3 id ="title6">Visualization 3: Histogram</h3>
+    <div>
+        <p>The cereal data selected for this visualization was to showcase all the cereal names of the whole data set. I wanted to design this histogram data selection this way so I am able to summarize
+        the distribution of calories in each cereal. This is so I can see how many cereals have a large/smaller amount of calories throughout.</p>
+        <p>For this histogram, I am trying to show the distribution of a user-specified
+        range of Calories (per serving) and the count/frequency of that quantity in the total amount of 80 cereal names. I chose a histogram with these specific measurements to showcase the frequency distribution 
+        described above. The bars are vertical and a relative size to showcase the data in a readable manner. The x-axis is the amount of calories (per serving), ranging from 50-170. The y-axis is the count/frequency of that measurement, ranging from 0-29. The amount ticks chosen for this
+        histogram was 10 ticks for the threshold. This histogram follows a more symmetric, unimodal trend.</p>
+        <p>For interactions, I added hovering, highlight, and a tool tip with the data about the calories (per serving) and count/frequency. For each bar you hover over, it will show the tool tip. The tool tip includes x0 and x1 which is basically the range of that specific bar, for example,
+        the tallest bar, is from x0 = 110 and x1 = 120, which is the range of that specific count, which is, 29. When hovering over the bars, it will highlight that specific bar with a darker color and leave the other bars a lighter color.
+        This facilitates effective communication to the user by allowing them to hover/highlight over which bar they prefer to look at for closer inspection.
+        </p> 
+    </div>
+
+    <h3 id ="title7">Visualization 4: Scatterplot</h3>
+    <div>
+        <p>The cereal data selected for this visualization was to showcase three cereal brands I love the most, which I believe has all the most popular names of cereals. 
+        I wanted to design the scatterplot data selection this way so I am able to compare all the cereal names with their consumer report rating and their potassium levels. I wanted to see if certain brands are rated higher/lower due to the potassium levels.</p>
+        <p>For this scatterplot, I am trying to show the relatiionship between Consumer Report Rating (%) vs Potassium levels (in mg) for the three cereal brands: General Mills, Kelloggs, and Post.
+        In addition, I am trying to compare the relationships between the 3 brands in the data set to showcase differences/similarities with the cereal brands.
+        I chose a scatterplot with these specific measurements to showcase the relationship described above. The size of the points are on the smaller side to demonstrate each comparison 
+        of the cereal brands in a readable manner. The x-axis starts from 15 to 60 and the y-axis scale starts from 20 to ~260, with the x in mg measurement and y in % measurement. 
+        The different colors represent the three different iris classes, so it easy to distinguish between them.</p>
+        <p>For interactions, I added hovering, tool tip, and dynamic query filtering. For each node you hover over, it will show a tool tip about the data with the specific cereal brand, name, rating, and potassium levels. 
+        The dynamic query filtering is related to the button above that will filter which cereal brand you want to view only for the scatter chart. 
+        For example, if you click the "Post" button, you will look at only the Post nodes for the chart. 
+        If you click on "All brands", it will revert back to how the original chart looked when it first loaded. 
+        This facilitates effective communication to the user by allowing them to select which data they prefer to look at for closer inspection.</p>    
+    </div>
+
+</div>
+
+
+<script>
+
+</script>
+
+</body>
+</html>

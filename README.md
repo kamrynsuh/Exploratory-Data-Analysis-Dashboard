@@ -22,3 +22,7 @@ or you can open in a web browser and navigate throughout the files with http://l
 
 80 cereals (cereals.csv): This dataset contains information about mutritional data on 80 cereal products. The data set contains the name, brand, type, rating, weight, cups, and other nutritional data, such as calories, protein, fat, sodium, fiber, carbo, sugars, potassium, vitamins, etc. I will work on a few of the attributes listed above.
 Source: https://www.kaggle.com/datasets/crawford/80-cereals?datasetId=2021&searchQuery=histogram
+
+### Visualizations
+
+![proj4vis](https://github.com/kamrynsuh/Exploratory-Data-Analysis-Dashboard/assets/78179030/4dae1bbc-cc66-4109-8806-3020c8471007)
